@@ -10,7 +10,7 @@ class Api::V1::ClientsController < Api::V1::BaseController
     @client = Client.new(client_params)
     @user_client = UserClient.new(user: current_user, client: @client)
     authorize @client
-    authorize @user_client
+    # authorize @user_client
     if @client.save && @user_client.save
       render :index
     else
