@@ -1,6 +1,6 @@
 class Api::V1::TasksController < Api::V1::BaseController
   acts_as_token_authentication_handler_for User, except: [ :index ]
-  before_action :set_task, only: [ :destroy ]
+  before_action :set_task, only: [ :destroy, :update ]
 
   def index
     @tasks = policy_scope(Task)
@@ -12,6 +12,15 @@ class Api::V1::TasksController < Api::V1::BaseController
     @task.client = Client.find(task_params[:client_id])
     authorize @task
     if @task.save
+      render :index
+    else
+      render_error
+    end
+  end
+
+  def update
+    authorize @task
+    if @task.update(task_params)
       render :index
     else
       render_error

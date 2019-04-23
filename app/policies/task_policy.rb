@@ -12,4 +12,8 @@ class TaskPolicy < ApplicationPolicy
   def destroy?
     create?
   end
+
+  def update?
+    create?
+  end
 end

@@ -10,6 +10,6 @@ class UserClientPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    create?
   end
 end

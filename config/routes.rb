@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :clients, only: [ :index, :create ]
       resources :user_clients, only: [ :index, :create, :destroy ]
-      resources :tasks, only: [ :index, :create, :destroy ]
+      resources :tasks, only: [ :index, :create, :destroy, :update ]
       resources :users, only: [:create]
     end
   end
