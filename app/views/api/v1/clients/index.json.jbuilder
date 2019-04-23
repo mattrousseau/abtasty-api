@@ -1,3 +1,3 @@
 json.array! @clients do |client|
-  json.extract! client, :name
+  json.extract! client, :id, :name
 end

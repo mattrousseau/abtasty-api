@@ -8,10 +8,8 @@ class Api::V1::UserClientsController < Api::V1::BaseController
 
   def create
     @user_client = UserClient.new
-    user = User.find(user_client_params[:user_id])
-    client = Client.find(user_client_params[:client_id])
-    @user_client.user = user
-    @user_client.client = client
+    @user_client.user = User.find(user_client_params[:user_id])
+    @user_client.client = Client.find(user_client_params[:client_id])
     authorize @user_client
     if @user_client.save
       render :index
