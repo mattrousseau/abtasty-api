@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       resources :clients, only: [ :index, :create ]
       resources :user_clients, only: [ :index, :create, :destroy ]
       resources :tasks, only: [ :index, :create, :destroy, :update ]
+      get '/my_weekly_tasks', to: "tasks#my_weekly_tasks"
       resources :users, only: [:create]
     end
   end

@@ -16,4 +16,8 @@ class TaskPolicy < ApplicationPolicy
   def update?
     create?
   end
+
+  def my_weekly_tasks?
+    true
+  end
 end
